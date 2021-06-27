@@ -1,1 +1,44 @@
-{"name":"alex"}
+[
+  {
+    "avatar": "",
+    "text": "adad",
+    "time": "06:36 PM",
+    "name": "",
+    "id": "418d79e2-6e7a-45f5-97bf-7a652b963cf3"
+  },
+  {
+    "avatar": "img/dialog3__avatar2.png",
+    "text": "какие планы на вечер?",
+    "time": "06:36 PM",
+    "name": "Terry Griffin",
+    "id": "e0e84634-7b41-4d62-8124-8ad579079215"
+  },
+  {
+    "avatar": "img/dialog1__avatar2.png",
+    "text": "чем занят?",
+    "time": "06:36 PM",
+    "name": "Terry Griffin",
+    "id": "be6ae6c2-400b-4f54-9580-fb771d648994"
+  },
+  {
+    "avatar": "",
+    "text": " fffff",
+    "time": "06:36 PM",
+    "name": "",
+    "id": "97f1f9b9-02e8-47ce-895d-33e964ee9c17"
+  },
+  {
+    "avatar": "img/dialog3__avatar1.png",
+    "text": "хорошая погода сегодня!",
+    "time": "06:36 PM",
+    "name": "Terry Griffin",
+    "id": "aaf739a9-3be5-44d9-bb1b-10f38da2c9f4"
+  },
+  {
+    "avatar": "img/dialog4__avatar1.png",
+    "text": "чем занят?",
+    "time": "06:36 PM",
+    "name": "Olivia Smith",
+    "id": "d9a1a92b-e68b-474f-88e9-9691f9591c59"
+  }
+]

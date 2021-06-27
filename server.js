@@ -9,10 +9,15 @@ const port = 8000;
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
-
+let history = []
+try {
+  history=JSON.parse(fs.readFileSync('out.json','utf8'))
+} catch (error) {
+  console.log('что-то пошло не так!')
+}
 app.post('/user', (req, res) => {
-  console.log  (JSON.stringify(req.body))
-  fs.writeFile('out.json', JSON.stringify(req.body), 'utf8', () => {
+  history.push(req.body) 
+  fs.writeFile('out.json', JSON.stringify(history,null,2), 'utf8', () => {
     console.log('Мы записали данные, ура!')
   });
   res.send(`hellow world ${port}`)
@@ -20,3 +25,5 @@ app.post('/user', (req, res) => {
 
 // listen on the port
 app.listen(port);
+
+
