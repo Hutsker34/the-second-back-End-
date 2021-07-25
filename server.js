@@ -12,18 +12,18 @@ app.use(express.urlencoded({ extended: true }));
 let history = {}
 try {
   history = JSON.parse(fs.readFileSync('out.json', 'utf8'))
-  
+
 } catch (error) {
   console.log('что-то пошло не так!')
 }
 app.post('/create-mess', (req, res) => {
-  if (history[req.body.id]) { 
-   history[req.body.id].push(req.body.history) 
+  if (history[req.body.id]) {
+    history[req.body.id].push(req.body.history)
   }
   else {
     history[req.body.id] = [req.body.history]
   }
-  
+
   fs.writeFile('out.json', JSON.stringify(history, null, 2), 'utf8', () => {
     console.log('Мы записали данные, ура!')
   });
@@ -37,7 +37,7 @@ app.post('/history', (req, res) => {
   res.send(history)
 });
 
-app.post('/get-dialogue',(req,res) => {
+app.post('/get-dialogue', (req, res) => {
   const idDialogue = req.body.id
   if (idDialogue in history) {
     res.send(history[idDialogue])
@@ -45,6 +45,24 @@ app.post('/get-dialogue',(req,res) => {
     res.send([])
   }
 });
+
+app.post('/delete-mess', (req, res) => {
+  const historyID = req.body.history
+  const idMessege = req.body.id
+  console.log(idMessege)
+  if (!(historyID in history)) {
+  }
+  const indexIDmessege = history[historyID].findIndex(item => item.id == idMessege)
+  if (indexIDmessege == -1) {
+    return res.send({success: false}) 
+  }
+  history[historyID].splice(indexIDmessege, 1)
+  fs.writeFile('out.json', JSON.stringify(history, null, 2), 'utf8', () => {
+    console.log('Мы записали данные, ура!')
+  });
+    return res.send({success: true})
+});
+
 
 
 
