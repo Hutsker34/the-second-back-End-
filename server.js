@@ -25,7 +25,7 @@ app.post('/create-mess', (req, res) => {
   }
 
   fs.writeFile('out.json', JSON.stringify(history, null, 2), 'utf8', () => {
-    console.log('Мы записали данные, ура!')
+    console.log('мы записали create-mess')
   });
   res.send(`hellow world ${port}`)
 });
@@ -49,7 +49,6 @@ app.post('/get-dialogue', (req, res) => {
 app.post('/delete-mess', (req, res) => {
   const historyID = req.body.history
   const idMessege = req.body.id
-  console.log(idMessege)
   if (!(historyID in history)) {
   }
   const indexIDmessege = history[historyID].findIndex(item => item.id == idMessege)
@@ -58,8 +57,34 @@ app.post('/delete-mess', (req, res) => {
   }
   history[historyID].splice(indexIDmessege, 1)
   fs.writeFile('out.json', JSON.stringify(history, null, 2), 'utf8', () => {
-    console.log('Мы записали данные, ура!')
+    console.log('Мы записали delete-mess')
   });
+    return res.send({success: true})
+});
+
+app.post('/redact-mess', (req, res) => {
+  const historyID = req.body.history
+  const idMessege = req.body.id
+  const newText = req.body.newText.trim()
+  
+   if (!(historyID in history ) || newText =='') {
+    return res.send({success: false})
+   }
+  const indexIDmessege = history[historyID].findIndex(item => item.id == idMessege)
+  if (indexIDmessege == -1) {
+    return res.send({success: false}) 
+  }
+  history[historyID] = history[historyID].map((item) => {
+    if (item.id === idMessege) {
+      return { ...item, text: newText }
+    } else {
+      return item
+    }
+  })
+  console.log(newText,'redact-mess')
+   fs.writeFile('out.json', JSON.stringify(history, null, 2), 'utf8', () => {
+     console.log('Мы записали данные, ура!')
+   });
     return res.send({success: true})
 });
 

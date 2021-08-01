@@ -2,112 +2,47 @@
   "0": [
     {
       "avatar": "",
-      "text": "adae",
-      "time": "06:10 PM",
+      "text": "    ",
+      "time": "06:29 PM",
       "name": "",
-      "id": "d6838fe5-77d1-45e4-a860-59036e2b2330"
-    },
-    {
-      "avatar": "",
-      "text": "dasda",
-      "time": "06:21 PM",
-      "name": "",
-      "id": "e019b514-d665-4474-8cc7-ea62a73c513e"
-    },
-    {
-      "avatar": "img/dialog2__avatar2.png",
-      "text": "чем занят?",
-      "time": "06:21 PM",
-      "name": "jessica Harris",
-      "id": "0d0fff98-59cc-40af-98b2-b9bf36772bb6"
-    }
-  ],
-  "1": [
-    {
-      "avatar": "",
-      "text": "adad",
-      "time": "06:12 PM",
-      "name": "",
-      "id": "ef96857e-7128-4abb-a8f0-7a7baa077daf"
+      "id": "d250a5de-e516-43e6-a334-ee85a4a0f1dd"
     },
     {
       "avatar": "img/dialog4__avatar1.png",
-      "text": "чем занят?",
-      "time": "06:12 PM",
-      "name": "Olivia Smith",
-      "id": "fc7d071e-a14a-4a94-b083-5c70fb89ce0c"
+      "text": "",
+      "time": "06:29 PM",
+      "name": "Piter Williams",
+      "id": "794f52f3-1d97-4b93-94bc-67a8883c18a7"
+    },
+    {
+      "avatar": "img/dialog1__avatar2.png",
+      "text": "",
+      "time": "06:29 PM",
+      "name": "victor Roberts",
+      "id": "aa9b81ef-9f8f-4731-bee4-decb144f3042"
     }
   ],
   "2": [
     {
       "avatar": "",
-      "text": "qasAD",
-      "time": "06:12 PM",
+      "text": "dfaf",
+      "time": "06:42 PM",
       "name": "",
-      "id": "8974f146-65cb-42a9-8a0c-09682068786c"
-    },
-    {
-      "avatar": "img/dialog4__avatar1.png",
-      "text": "как дела?",
-      "time": "06:12 PM",
-      "name": "Piter Williams",
-      "id": "800649c6-03da-47d3-addc-7f302abde159"
-    }
-  ],
-  "4": [
-    {
-      "avatar": "",
-      "text": "кфк",
-      "time": "05:02 PM",
-      "name": "",
-      "id": "06859096-c327-4841-8825-d19ef5857d1e"
+      "id": "163122a5-e717-47f9-92d8-1954d1f47d76"
     },
     {
       "avatar": "img/dialog2__avatar2.png",
-      "text": "как дела?",
-      "time": "05:02 PM",
-      "name": "jessica Harris",
-      "id": "bdfc78c7-d1cc-48fd-bfc4-6bf22921b859"
+      "text": "какие планы на вечер?",
+      "time": "06:42 PM",
+      "name": "Olivia Smith",
+      "id": "a6707d93-22bb-4c7a-9569-f30e43f887b4"
     },
     {
       "avatar": "img/dialog3__avatar1.png",
-      "text": "какие планы на вечер?",
-      "time": "05:02 PM",
-      "name": "Piter Williams",
-      "id": "50860259-2083-4fbc-837d-1754d8ae67c4"
-    }
-  ],
-  "5": [],
-  "6": [
-    {
-      "avatar": "img/dialog2__avatar1.png",
-      "text": "чем занят?",
-      "time": "05:43 PM",
-      "name": "Angela Lopez",
-      "id": "a186eb6d-f30b-4c84-930c-0a0e44dac339"
-    }
-  ],
-  "7": [
-    {
-      "avatar": "",
-      "text": "cccccccccc",
-      "time": "05:43 PM",
-      "name": "",
-      "id": "d5af6eca-0463-4b8d-bf22-1fc821ccf65d"
-    },
-    {
-      "avatar": "img/dialog1__avatar2.png",
       "text": "хорошая погода сегодня!",
-      "time": "05:44 PM",
-      "name": "Angela Lopez",
-      "id": "886cde25-5259-470e-82da-4324f3cabc51"
-    },
-    {
-      "avatar": "img/dialog4__avatar1.png",
-      "text": "как дела?",
-      "time": "05:44 PM",
+      "time": "06:42 PM",
       "name": "Piter Williams",
-      "id": "c90a3ea3-ae0d-44b6-88b2-4cb18c04f621"
+      "id": "c2f2b7f6-9df2-46ee-910b-33ef15bc6e6e"
     }
   ]
 }
