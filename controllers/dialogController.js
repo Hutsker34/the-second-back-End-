@@ -1,5 +1,6 @@
 //Import Bio Model
 Dialog = require('../model/dialogModel');
+Message = require('../model/messageModel');
 
 //For index
 exports.index = function (req, res) {
@@ -9,30 +10,35 @@ exports.index = function (req, res) {
                 status: "error",
                 message: err
             });
-            
-        res.json({
-            status: "success",
-            message: "Got dialog Successfully!",
-            data:  convert(dialog) 
+
+        Message.find({
+            'id': {$in: dialog.map(it => it._id)}
+        }, function (err, docs) {
+            if (err) {
+                return res.json({
+                    status: "error",
+                    message: err
+                });
+            }
+
+            // Аналог convert, только пробегаемся по всем сообщениям и аккумулируем по айдишнику диалога (поле id в модели сообщения)
+            const result = docs.reduce((total, item) => {
+                if (total[item.id]) {
+                    total[item.id].push(item)
+                } else {
+                    total[item.id] = [item];
+                }
+                return total;
+            }, {});
+
+            return res.json({
+                status: "success",
+                message: "Got dialog Successfully!",
+                data: result
+            });
         });
     });
 };
-/**
- * {'hdf453hdhf774ff3321':[],'44gg556gm6f24f4rt5':[]}
- *  
- * [ {_id:'44gg556gm6f24f4rt5' ,messages :[]} { _id:'rhft556f24f4rt5' ,messages :[] } ]
- */ 
-function convert (mus){
-    let object = {
-            
-    }
-    for(let key in mus){
-        const {_id, messages}=mus[key]
-        object[_id]=messages
-    }
-    return object
-}
-
 exports.add = function (req, res) {
     const dialog = new Dialog();
 
