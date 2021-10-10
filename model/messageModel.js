@@ -4,11 +4,13 @@ const mongoose = require('mongoose');
 const messageSchema = mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: false, 
+        default: ''
     },
     avatar: {
         type: String,
-        required: true
+        required: false,
+        default: ''
     },
     time: {
         type: String,
@@ -28,5 +30,5 @@ const messageSchema = mongoose.Schema({
 const Message = module.exports = mongoose.model('message', messageSchema);
 
 module.exports.get = function (callback, limit) {
-   Message.find(callback).limit(limit); 
+    Message.find(callback).limit(limit);
 }

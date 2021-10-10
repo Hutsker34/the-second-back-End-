@@ -1,6 +1,6 @@
- //Import Bio Model
-Message = require('./messageModel');
-
+//Import Bio Model
+Message = require('../model/messageModel');
+Dialog = require('../model/dialogModel');
 //For index
 exports.index = function (req, res) {
     Message.get(function (err, message) {
@@ -12,27 +12,40 @@ exports.index = function (req, res) {
         res.json({
             status: "success",
             message: "Got Bio Successfully!",
-            data: message       
+            data: message
         });
     });
 };
 
-exports.add = function (req, res) {
+exports.add = async function (req, res) {
     const message = new Message();
-    message.name = req.body.name;
-    message.avatar = req.body.avatar;
-    message.time = req.body.time;
-    message.id = req.body.id;
-    message.text = req.body.text
-
+    console.log('text' , Object.keys(req.body))
+    const { name, avatar, time, id, text } = req.body.history
+    message.name = name;
+    message.avatar = avatar;
+    message.time = time;
+    message.id = id;
+    message.text = text
     //Save and check error
-    message.save(function (err) {
-        if (err)
+    await message.save(function (err) {
+        if (err) {
             res.json(err);
+            return
+        }
+    });
 
-        res.json({
-            message: "New Bio Added!",
-            data: message
+    Dialog.findById(id, function (err, dialog) {
+        if (err)
+            return res.send(err);
+            dialog.messages.push(message._id.toString())
+        //save and check errors
+        dialog.save(function (err) {
+            if (err)
+                res.json(err)
+            res.json({
+                message: "dialog Updated Successfully",
+                data: dialog
+            });
         });
     });
 };
@@ -56,7 +69,7 @@ exports.update = function (req, res) {
     Message.findById(req.params.message_id, function (err, message) {
         if (err)
             res.send(err);
-            message.text = req.body.text
+        message.text = req.body.text
 
         //save and check errors
         message.save(function (err) {

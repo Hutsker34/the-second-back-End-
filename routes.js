@@ -3,7 +3,8 @@ let router = require('express').Router();
 
 
 //Import Bio Controller
-var messageController = require('./messageController');
+const messageController = require('./controllers/messageController');
+const dialogController = require('./controllers/dialogController');
 
 // Bio routes
 router.route('/message')  
@@ -15,6 +16,14 @@ router.route('/message/:message_id')
     .patch(messageController.update)
     .post(messageController.view);
 
+router.route('/dialog')   
+    .get(dialogController.index)
+    .post(dialogController.add)
+
+router.route('/dialog/:dialog_id')
+    .delete(dialogController.delete)
+    .patch(dialogController.update)
+    .post(dialogController.view)
 
 
 //Export API routes
