@@ -10,7 +10,7 @@ exports.index = function (req, res) {
                 status: "error",
                 message: err
             });
-
+            console.log(dialog)
         Message.find({
             'id': {$in: dialog.map(it => it._id)}
         }, function (err, docs) {

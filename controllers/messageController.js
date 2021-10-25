@@ -33,8 +33,8 @@ exports.add = async function (req, res) {
             return
         }
     });
-
-    Dialog.findById(id, function (err, dialog) {
+console.log('req', req.body.id)
+    Dialog.findById(req.body.id, function (err, dialog) {
         if (err)
             return res.send(err);
             dialog.messages.push(message._id.toString())
