@@ -59,15 +59,6 @@ app.post('/history', (req, res) => {
   res.send(history)
 });
 
-app.post('/get-dialogue', (req, res) => {
-  const idDialogue = req.body.id
-  if (idDialogue in history) {
-    res.send(history[idDialogue])
-  } else {
-    res.send([])
-  }
-});
-
 app.post('/delete-mess', (req, res) => {
   const historyID = req.body.history
   const idMessege = req.body.id
