@@ -19,7 +19,6 @@ exports.index = function (req, res) {
 
 exports.add = async function (req, res) {
     const message = new Message();
-    console.log('text' , Object.keys(req.body))
     const { name, avatar, time, id, text } = req.body.history
     message.name = name;
     message.avatar = avatar;
@@ -33,7 +32,7 @@ exports.add = async function (req, res) {
             return
         }
     });
-console.log('req', req.body.id)
+    
     Dialog.findById(req.body.id, function (err, dialog) {
         if (err)
             return res.send(err);
@@ -44,7 +43,7 @@ console.log('req', req.body.id)
                 res.json(err)
             res.json({
                 message: "dialog Updated Successfully",
-                data: dialog
+                data: message
             });
         });
     });
@@ -84,6 +83,7 @@ exports.update = function (req, res) {
 };
 
 // Delete Bio
+
 exports.delete = function (req, res) {
     Message.deleteOne({
         _id: req.params.message_id

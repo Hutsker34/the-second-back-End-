@@ -59,21 +59,6 @@ app.post('/history', (req, res) => {
   res.send(history)
 });
 
-app.post('/delete-mess', (req, res) => {
-  const historyID = req.body.history
-  const idMessege = req.body.id
-  if (!(historyID in history)) {
-  }
-  const indexIDmessege = history[historyID].findIndex(item => item.id == idMessege)
-  if (indexIDmessege == -1) {
-    return res.send({success: false}) 
-  }
-  history[historyID].splice(indexIDmessege, 1)
-  fs.writeFile('out.json', JSON.stringify(history, null, 2), 'utf8', () => {
-    console.log('Мы записали delete-mess')
-  });
-    return res.send({success: true})
-});
 
 app.post('/redact-mess', (req, res) => {
   const historyID = req.body.history
