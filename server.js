@@ -60,31 +60,7 @@ app.post('/history', (req, res) => {
 });
 
 
-app.post('/redact-mess', (req, res) => {
-  const historyID = req.body.history
-  const idMessege = req.body.id
-  const newText = req.body.newText.trim()
-  
-   if (!(historyID in history ) || newText =='') {
-    return res.send({success: false})
-   }
-  const indexIDmessege = history[historyID].findIndex(item => item.id == idMessege)
-  if (indexIDmessege == -1) {
-    return res.send({success: false}) 
-  }
-  history[historyID] = history[historyID].map((item) => {
-    if (item.id === idMessege) {
-      return { ...item, text: newText }
-    } else {
-      return item
-    }
-  })
-  console.log(newText,'redact-mess')
-   fs.writeFile('out.json', JSON.stringify(history, null, 2), 'utf8', () => {
-     console.log('Мы записали данные, ура!')
-   });
-    return res.send({success: true})
-});
+
 
 
 

@@ -68,7 +68,7 @@ exports.update = function (req, res) {
     Message.findById(req.params.message_id, function (err, message) {
         if (err)
             res.send(err);
-        message.text = req.body.text
+        message.text = req.body.newText
 
         //save and check errors
         message.save(function (err) {
@@ -76,7 +76,8 @@ exports.update = function (req, res) {
                 res.json(err)
             res.json({
                 message: "Message Updated Successfully",
-                data: message
+                data: message,
+                success: true
             });
         });
     });

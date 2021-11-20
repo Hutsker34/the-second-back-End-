@@ -4,7 +4,6 @@ const source = fs.readFileSync('in.json', 'utf8');
 
 function modify(entry) {
     const {data} = JSON.parse(entry);
-    console.log(data)
     data.age = 20;
     data.job = 'postman';
     return JSON.stringify({
